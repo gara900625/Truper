@@ -1,0 +1,9 @@
+package com.spring_boot.compras.repository;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.spring_boot.compras.entity.ListaCompraDetalle;
+
+public interface ListaCompraDetalleRepository extends CrudRepository<ListaCompraDetalle,Integer> {
+
+}

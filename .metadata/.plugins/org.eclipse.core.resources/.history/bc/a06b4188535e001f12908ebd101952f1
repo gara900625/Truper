@@ -1,0 +1,5 @@
+package com.spring_boot.compras.controller;
+
+public class ComprasController {
+
+}

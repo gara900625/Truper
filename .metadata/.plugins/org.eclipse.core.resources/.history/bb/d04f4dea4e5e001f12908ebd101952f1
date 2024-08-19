@@ -1,0 +1,47 @@
+package com.spring_boot.compras.entity;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="ListaCompraDetalle")
+public class ListaCompraDetalle {
+	
+	@EmbeddedId
+	@Column(name="id_lista_compra")
+	private ListaCompra idListaCompra;
+	
+	@EmbeddedId
+	@Column(name="id_codigo_producto")
+	private Productos idCodigoProducto;
+	
+	@Column(name="cantidad")
+	private Integer cantidad;
+
+	public ListaCompra getIdListaCompra() {
+		return idListaCompra;
+	}
+
+	public void setIdListaCompra(ListaCompra idListaCompra) {
+		this.idListaCompra = idListaCompra;
+	}
+
+	public Productos getIdCodigoProducto() {
+		return idCodigoProducto;
+	}
+
+	public void setIdCodigoProducto(Productos idCodigoProducto) {
+		this.idCodigoProducto = idCodigoProducto;
+	}
+
+	public Integer getCantidad() {
+		return cantidad;
+	}
+
+	public void setCantidad(Integer cantidad) {
+		this.cantidad = cantidad;
+	}
+}

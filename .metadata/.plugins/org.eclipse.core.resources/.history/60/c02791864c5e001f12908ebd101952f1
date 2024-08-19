@@ -1,0 +1,5 @@
+package com.spring_boot.compras.repository;
+
+public interface ProductosRepository {
+
+}
