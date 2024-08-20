@@ -1,0 +1,13 @@
+package com.springboot.app.prueba.service;
+
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+
+import com.springboot.app.prueba.entity.User;
+
+public interface UserService extends UserDetailsService {
+	
+	public UserDetails loadUserByUsername(String username);
+	public User saveUser(User user);
+
+}

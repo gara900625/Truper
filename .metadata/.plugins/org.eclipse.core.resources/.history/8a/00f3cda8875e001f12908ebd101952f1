@@ -1,0 +1,12 @@
+package com.spring_boot.compras.repository;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
+
+import com.springboot.app.prueba.entity.User;
+
+public interface UserRepository extends CrudRepository<User,Long> {
+	
+	public User findByEmail(@Param("email") String email);
+
+}

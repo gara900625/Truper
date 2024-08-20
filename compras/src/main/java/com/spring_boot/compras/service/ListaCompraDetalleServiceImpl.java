@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import com.spring_boot.compras.entity.ListaCompraDetalle;
 import com.spring_boot.compras.repository.ListaCompraDetalleRepository;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class ListaCompraDetalleServiceImpl implements ListaCompraDetalleService {
 
@@ -15,31 +17,15 @@ public class ListaCompraDetalleServiceImpl implements ListaCompraDetalleService 
 	private ListaCompraDetalleRepository listaCompraDetalleR;
 	
 	@Override
+	@Transactional
 	public List<ListaCompraDetalle> obtenerListaCompraDetalle() {
 		return (List<ListaCompraDetalle>) listaCompraDetalleR.findAll();
 	}
 
 	@Override
-	public List<ListaCompraDetalle> obtenerListaCompraDetalleByIdCliente(Integer idCliente) {
-		return listaCompraDetalleR.findByIdCliente(idCliente);
-	}
-
-	@Override
+	@Transactional
 	public ListaCompraDetalle guardarListaCompraDetalle(ListaCompraDetalle listaCompraDetalle) {
 		return listaCompraDetalleR.save(listaCompraDetalle);
-	}
-
-	@Override
-	public ListaCompraDetalle modificarListaCompraDetalle(ListaCompraDetalle listaCompraDetalle) {
-		//ListaCompraDetalle
-		
-		return null;
-	}
-
-	@Override
-	public void eliminarListaCompraDetalle(Integer idListaCompra, Integer idCodigoProducto) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

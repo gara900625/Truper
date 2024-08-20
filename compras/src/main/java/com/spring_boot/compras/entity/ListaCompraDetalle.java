@@ -1,36 +1,54 @@
 package com.spring_boot.compras.entity;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.MapsId;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="ListaCompraDetalle")
+@Table(name="listacompradetalle")
 public class ListaCompraDetalle {
 	
-	@Column(name="id_lista_compra")
-	private Integer idListaCompra;
+	@EmbeddedId
+	private ListaCompraDetalleId id;
 	
-	@Column(name="id_codigo_producto")
-	private Integer idCodigoProducto;
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="idlista", nullable=false)
+	private ListaCompra listaCompra;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="idproducto", nullable=false)
+	private Productos productos;
 	
 	@Column(name="cantidad")
 	private Integer cantidad;
 
-	public Integer getIdListaCompra() {
-		return idListaCompra;
+	public ListaCompraDetalleId getId() {
+		return id;
 	}
 
-	public void setIdListaCompra(Integer idListaCompra) {
-		this.idListaCompra = idListaCompra;
+	public void setId(ListaCompraDetalleId id) {
+		this.id = id;
 	}
 
-	public Integer getIdCodigoProducto() {
-		return idCodigoProducto;
+	public ListaCompra getListaCompra() {
+		return listaCompra;
 	}
 
-	public void setIdCodigoProducto(Integer idCodigoProducto) {
-		this.idCodigoProducto = idCodigoProducto;
+	public void setListaCompra(ListaCompra listaCompra) {
+		this.listaCompra = listaCompra;
+	}
+
+	public Productos getProductos() {
+		return productos;
+	}
+
+	public void setProductos(Productos productos) {
+		this.productos = productos;
 	}
 
 	public Integer getCantidad() {
@@ -40,4 +58,5 @@ public class ListaCompraDetalle {
 	public void setCantidad(Integer cantidad) {
 		this.cantidad = cantidad;
 	}
+	
 }
